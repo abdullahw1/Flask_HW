@@ -1,9 +1,5 @@
 from myapp import db
 
-class City(UserMixin, db.Model):
-from city import db
-
-
 class City(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     city_name = db.Column(db.String(30), index=True)
