@@ -16,7 +16,7 @@ def home():
         city = Cities(city_name = form.city_name.data, city_rank = form.city_rank.data, is_visited = form.is_visited.data)
         db.session.add(city)
         db.session.commit()
-        flash(f'{form.city_name.data} added!')
+        flash(f'{form.city_name.data} submitted!')
         return redirect('/')
 
     top_cities = Cities.query.order_by(Cities.city_rank).all()
