@@ -1,69 +1,14 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
-    <head>
-        {% if title %}
-            <title>{{title}}!</title>
+	<head>
+       
+		{% if title %}
+        <title>{{title}}</title>
         {% else %}
-            <title>No Name</title>
+        <title>Home</title>
         {% endif %}
     </head>
-    <body>
-        <div>
-            <p>My Website:</p>
-            <a href="/">Home</a>
-            <a href="/login">Login</a>
-        </div>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for m in messages %}
-            <li>{{ m }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
-
-    {% block content %}
-    {% endblock %}
-    </body>
-</html>
--------------------------
-<!DOCTYPE html>
-<html>
-    <head>
-        {% if title %}
-            <title>{{title}}!</title>
-        {% else %}
-            <title>No Name</title>
-        {% endif %}
-    </head>
-    <body>
-        <div>
-          	<h1>Welcome {{name}}, here are top destinations!   <h1>	
-             <a href="https://www.google.com ">goooogle </a>  
-             <ul>
-   				{% for city in top_cities %}
-            <li>{{ city }}</li>
-    {% endfor %}
-    </ul>a
-              
- 
-            <p>My Website:</p>
-            <a href="/">Home</a>
-            <a href="/login">Login</a>
-        </div>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-          
-            {% for m in messages %}
-            <li>{{ m }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
-
-    {% block content %}
-    {% endblock %}
-    </body>
+	<body>
+		{% block body %}{% endblock %}
+	</body>
 </html>
