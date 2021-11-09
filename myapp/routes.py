@@ -9,15 +9,14 @@ from flask_login import current_user, login_user, logout_user, login_required
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def home():
-    form = TopCities()
     title = 'Top Cities'
+    form = TopCities()
     name = 'Abdullah'
-    top_cities = User.query.all()
     if form.validate_on_submit():
         city = Cities(city_name = form.city_name.data, city_rank = form.city_rank.data, is_visited = form.is_visited.data)
         db.session.add(city)
         db.session.commit()
-        flash(f'{form.cityName.data} added!')
+        flash(f'{form.city_name.data} added!')
         return redirect('/')
 
     top_cities = Cities.query.order_by(Cities.city_rank).all()
