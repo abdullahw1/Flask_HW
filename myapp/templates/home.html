@@ -1,33 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
-    {% if name %}
-        <h1>Welcome {{ name }}, here are your top destinations!</h1>
-    {% endif %}
-    <h4><a href="https://www.google.com">goooogle</a></h4>
-    <ul>
-    {% for city in top_cities %}
-    <div>
-	        <ul>
-			    <li>{{ city }}</li>
-		    </ul>
+{% if name %}
+	<h1>Welcome {{ name }}, here are your top destinations!</h1>
+    	{% endif %}
+    	<h4><a href="https://www.google.com">goooogle</a></h4>
+    	<ul>
+    	{% for city in top_cities %}
+    	<div>
+		<ul>
+			<li>{{ city }}</li>
+		</ul>
 	</div>
-    <form action="" method="POST">
-		{{form.hidden_tag()}}		
-		<p>
-            {{form.cityName.label}}
-            {{form.cityName(size=32)}}
-		</p>
+	<form action="" method="POST">
+	{{form.hidden_tag()}}		
+	<p>
+		{{form.cityName.label}}
+		{{form.cityName(size=32)}}
+	</p>
+		
         <p>
-			{{ form.city_rank.label }} <br>
-			{{ form.city_rank(size=32) }}
-		</p>
-		<p>
-			{{ form.is_visited.label }} <br>
-			{{ form.is_visited() }}
-		</p>
-		<p>
-			{{ form.submit() }}
-		</p>
-	</form>
+
+		{{ form.city_rank.label }} <br>
+		{{ form.city_rank(size=32) }}
+	</p>
+		
+	<p>
+		{{ form.is_visited.label }} <br>
+		{{ form.is_visited() }}
+	</p>
+		
+	<p>
+		{{ form.submit() }}
+	</p>
+</form>
 {% endblock %}
 
