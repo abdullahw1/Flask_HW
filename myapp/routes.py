@@ -14,11 +14,11 @@ def home():
     name = 'Abdullah'
     top_cities = User.query.all()
     if form.validate_on_submit():
-        city = Cities(cityName = form.cityName.data, cityRank = form.cityRank.data, isVisited = form.isVisited.data)
+        city = Cities(city_name = form.city_name.data, city_rank = form.city_rank.data, is_visited = form.is_visited.data)
         db.session.add(city)
         db.session.commit()
         flash(f'{form.cityName.data} added!')
         return redirect('/')
 
-    top_cities = City.query.order_by(City.city_rank).all()
+    top_cities = Cities.query.order_by(Cities.city_rank).all()
     return render_template('home.html', form = form, title = title, name=name, top_cities=top_cities)
